@@ -90,6 +90,13 @@ applyDescriptors <- function(dataFrame) {
   return(dataFrame)
 }
 
+applyDescriptors2 <- function(dataFrame) {
+  activities <- read.table("data/activity_labels.txt")
+  activities[, 2] = gsub("_", "", tolower(as.character(activities[, 2])))
+  Y[,1] = activities[Y[,1], 2]
+  names(Y) <- "activity"
+}
+
 # Combine mean & st. deviation datasets (datasetA), activities (datasetB) and 
 # subjects (datasetC) into one dataframe.
 #
@@ -130,4 +137,5 @@ main <- function() {
   
   # Create a .CSV file containing the newly created tidy dataset
   write.csv(tidy, "TidyDataSet.csv", row.names=FALSE)
+  write.table(tidy, "tidyDataSet.txt", row.names = FALSE)
 }
