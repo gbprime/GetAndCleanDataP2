@@ -16,7 +16,7 @@ library(plyr)
 #
 # TODO find a script to determine whether or not a user is using OSX/Linux or Windows
 getData <- function() {
-  "Checks for data directory and creates one if it doesn't exist"
+  # Checks for data directory and creates one if it doesn't exist
   if (!file.exists("data")) {
     message("Creating data directory...")
     dir.create("data")
