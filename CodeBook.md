@@ -1,7 +1,7 @@
-Course Project Code Book
+CodeBook
 ========================
 
-# Introduction
+# Solution's Outline
 
 The script `run_analysis.R`
 
@@ -48,5 +48,5 @@ The final step creates a tidy data set with the average of each variable for
 each activity and each subject. 10299 instances are split into 180 groups (30
 subjects and 6 activities) and 66 mean and standard deviation features are
 averaged for each group. The resulting data table has 180 rows and 66 columns.
-The tidy data set is exported to `UCI_HAR_tidy.txt` where the first row is the
+The tidy data set is exported to the requested text file where the first row is the
 header containing the names for each column.
