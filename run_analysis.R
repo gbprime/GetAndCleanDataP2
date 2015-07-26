@@ -26,8 +26,8 @@ getData <- function() {
     fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
     zipfile <- "data/UCI_HAR_data.zip"
     
-    # download.file(fileURL, destfile=zipfile, method="curl")
-    download.file(fileURL, destfile=zipfile)
+    download.file(fileURL, destfile=zipfile, method="curl")
+    # download.file(fileURL, destfile=zipfile)
     unzip(zipfile, exdir="data")
   }
 }
