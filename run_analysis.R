@@ -70,6 +70,7 @@ extractMeanAndStandardDeviation <- function(dataFrame) {
 }
 
 # Applies descriptors or names to the activities in the dataframe
+# TODO read the activity file and apply names instead of this hack with enumerators.
 applyDescriptors <- function(dataFrame) {
   colnames(dataFrame) <- "activity"
   
