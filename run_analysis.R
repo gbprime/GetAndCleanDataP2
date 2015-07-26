@@ -5,7 +5,6 @@
 # This R script gets, cleans and performs certain operations on data obtained from the accelerometers 
 # used in the Samsung Galaxy S smartphone.
 #
-# Created by Gabriel Becerra
 # Project # 2: Getting & Cleaning Data
 # *********************************************************************************************************
 
@@ -37,17 +36,11 @@ getData <- function() {
 # returns a list of data frames accessible by name (e.g. object$name)
 mergeCoordinateDataSets <- function() {
   # Read data
-  message("reading X_train.txt")
   training_XCoord <- read.table("data/UCI HAR Dataset/train/X_train.txt")
-  message("reading y_train.txt")
   training_YCoord <- read.table("data/UCI HAR Dataset/train/y_train.txt")
-  message("reading subject_train.txt")
   trainingSubject <- read.table("data/UCI HAR Dataset/train/subject_train.txt")
-  message("reading X_test.txt")
   test_XCoord <- read.table("data/UCI HAR Dataset/test/X_test.txt")
-  message("reading y_test.txt")
   test_YCoord <- read.table("data/UCI HAR Dataset/test/y_test.txt")
-  message("reading subject_test.txt")
   testSubject <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
   
   # Merge Results
@@ -121,21 +114,20 @@ main <- function() {
   mergedResults <- mergeCoordinateDataSets()
   
   # For each measurement, the mean and standard deviation are extracted
-  msDataframe <- extractMeanAndStandardDeviation(mergedResults$x)
+  measurementsDataframe <- extractMeanAndStandardDeviation(mergedResults$x)
   
   # Applying descriptors to the activities
   descriptorsDataframe <- applyDescriptors(mergedResults$y)
   
-  # Apply descriptive names to columns
+  # Applying descriptive names to columns
   colnames(mergedResults$subject) <- c("subject")
   
-  # Combines all data frames
-  dataframes <- bindDataSets(msDataframe, descriptorsDataframe, mergedResults$subject)
+  # Combining all data frames
+  dataframes <- bindDataSets(measurementsDataframe, descriptorsDataframe, mergedResults$subject)
   
-  # Create tidy dataset
+  # Creating the tidy dataset
   tidy <- createTidyDataSet(dataframes)
   
-  # Create a .CSV file containing the newly created tidy dataset
-  write.csv(tidy, "TidyDataSet.csv", row.names=FALSE)
+  # Create a .TXT file containing the newly created tidy dataset
   write.table(tidy, "tidyDataSet.txt", row.names = FALSE)
 }
