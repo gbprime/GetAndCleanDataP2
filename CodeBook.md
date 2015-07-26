@@ -18,21 +18,12 @@ The script also assumes that `plyr` library is already installed.
 
 It is very easy to follow the script - the script is function-based and all processes are guided by main()  To use the script, call main()
 
-# The original data set
-
-The original data set is split into training and test sets (70% and 30%,
-respectively) where each partition is also split into three files that contain
-
-- measurements from the accelerometer and gyroscope
-- activity label
-- identifier of the subject
-
-# Getting and cleaning data
+# Data...
 
 If the data is not already available in the `data` directory, it is downloaded
-from UCI repository.
+from the UCI repository and unzipped.
 
-The first step of the preprocessing is to merge the training and test
+The first step is to merge the training and test
 sets. Two sets combined resulting in a table containing 562 columns (560
 measurements, subject identifier and activity label).
 
